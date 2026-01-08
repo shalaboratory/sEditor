@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sEditor Pro | ShaLab Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #334155;
+            --sidebar-width: 280px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+
+        /* --- Layout --- */
+        .wrapper { display: flex; min-height: 100vh; }
+        
+        /* Sidebar */
+        aside {
+            width: var(--sidebar-width);
+            background: var(--light);
+            border-right: 1px solid var(--border);
+            padding: 2rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 2rem; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+
+        nav ul { list-style: none; }
+        nav ul li { margin-bottom: 0.5rem; }
+        nav ul li a { text-decoration: none; color: var(--text); font-size: 0.95rem; display: block; padding: 0.5rem; border-radius: 6px; transition: 0.2s; }
+        nav ul li a:hover { background: #e2e8f0; color: var(--primary); }
+        nav .active { background: var(--primary); color: #fff !important; }
+
+        /* Main Content */
+        main { flex: 1; margin-left: var(--sidebar-width); padding: 4rem 10%; max-width: 1200px; }
+
+        section { margin-bottom: 5rem; scroll-margin-top: 2rem; }
+        h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 1rem; }
+        h2 { font-size: 1.75rem; color: var(--dark); margin-bottom: 1.5rem; border-bottom: 2px solid var(--light); padding-bottom: 0.5rem; }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; color: #64748b; }
+
+        /* Code Blocks */
+        pre { background: var(--dark); color: #e2e8f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin: 1.5rem 0; position: relative;}
+        code { font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+
+        /* Demo Container */
+        .demo-box { border: 1px solid var(--border); border-radius: 12px; padding: 1rem; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.5rem; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s; margin-top: 1rem; }
+        .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+
+        /* Badges */
+        .badge { background: #dcfce7; color: #166534; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+        @media (max-width: 900px) {
+            aside { display: none; }
+            main { margin-left: 0; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <aside>
+            <div class="logo">ShaLab <span>sEditor</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="active">Introduction</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#quickstart">Quick Start</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#demo">Live Demo</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <section id="intro">
+                <span class="badge">Version 2.0.4</span>
+                <h1>Powerful Rich Text Editing</h1>
+                <p>sEditor by ShaLab is a lightweight, zero-dependency JavaScript WYSIWYG editor designed for modern web applications. It bridges the gap between complex enterprise editors and simple textareas.</p>
+                <a href="#download" class="btn"><i class="fas fa-download"></i> Get Started</a>
+                <a href="#demo" class="btn btn-outline">See it in action</a>
+            </section>
+
+            <section id="features">
+                <h2>Why Choose sEditor?</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <i class="fas fa-bolt" style="color:var(--primary); font-size: 1.5rem;"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Ultra Lightweight</h4>
+                        <p style="font-size: 0.95rem;">Under 15KB gzipped. No jQuery or heavy frameworks required.</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-code" style="color:var(--primary); font-size: 1.5rem;"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">Clean HTML</h4>
+                        <p style="font-size: 0.95rem;">Generates semantic, clean HTML output optimized for SEO.</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-shield-alt" style="color:var(--primary); font-size: 1.5rem;"></i>
+                        <h4 style="margin: 1rem 0 0.5rem;">ShaLab Secure</h4>
+                        <p style="font-size: 0.95rem;">Built-in protection against common XSS injection patterns.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quickstart">
+                <h2>Quick Start</h2>
+                <p>Include the sEditor script in your HTML file and initialize it on any <code>&lt;div&gt;</code>.</p>
+                
+                <pre><code>&lt;!-- Container --&gt;
+&lt;div id="myEditor"&gt;&lt;/div&gt;
+
+&lt;!-- Script --&gt;
+&lt;script src="js/seditor.pro.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  sEditor.run({
+    selector: '#myEditor'
+  });
+&lt;/script&gt;</code></pre>
+            </section>
+
+            <section id="demo">
+                <h2>Live Demo</h2>
+                <p>Try the fully-featured editor below. Experiment with image insertion, links, and HTML view.</p>
+                <div class="demo-box">
+                    <div id="seditor"></div>
+                </div>
+            </section>
+
+            <section id="configuration">
+                <h2>Configuration</h2>
+                <p>Customize sEditor to fit your needs by passing options to the <code>run</code> method.</p>
+                <pre><code>sEditor.run({
+  selector: '#editor',
+  plugins: {
+    image: true,   // Enable image modal
+    link: true,    // Enable link modal
+    source: true   // Enable HTML source view
+  }
+});</code></pre>
+            </section>
+
+            <section id="download">
+                <h2>Download</h2>
+                <p>Get the latest production-ready build of ShaLab sEditor.</p>
+                <div style="background: var(--light); padding: 2rem; border-radius: 12px; border: 1px dashed var(--primary); text-align: center;">
+                    <p style="color: var(--dark); font-weight: 600;">seditor-v2.0.4.zip</p>
+                    <small>Includes Minified JS, Icons, and Documentation</small><br>
+                    
+					<a href="/seditor-v2.0.4.zip" class="btn" download>
+						<i class="fas fa-download"></i> Download v2.0.4
+					</a>
+                </div>
+            </section>
+
+            <footer style="margin-top: 10rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: #94a3b8;">
+                &copy; 2026 ShaLab. All rights reserved. | <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
+            </footer>
+        </main>
+    </div>
+<script src="dist/seditor.min.js"></script>
+    <script>
+        // Paste your sEditor JavaScript code here
+        // Then initialize it:
+        // sEditor.run({ selector: '#seditor' });
+		
+		    sEditor.run({
+        selector: '#seditor',
+        plugins: {
+            "image": true,
+            "link": true,
+            "source": true
+        }
+    });
+    </script>
+</body>
+</html>
