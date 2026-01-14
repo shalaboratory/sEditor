@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sEditor Documentation</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+        pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        .badge { background: #007bff; color: white; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table th, table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        table th { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+    <h1>sEditor.js <span class="badge">v3.0.0</span></h1>
+    <p>A lightweight, zero-dependency WYSIWYG rich text editor for modern web applications.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li><strong>Formatting:</strong> Bold, Italic, Underline, Strikethrough, Super/Subscript.</li>
+        <li><strong>Layout:</strong> Text alignment (Left, Center, Right, Justify) and Lists.</li>
+        <li><strong>Multimedia:</strong> Advanced Image and Link insertion modals.</li>
+        <li><strong>Theme:</strong> Built-in Dark Mode and Fullscreen mode.</li>
+        <li><strong>Development:</strong> Direct HTML source code editing.</li>
+    </ul>
+
+    <h2>Quick Start</h2>
+    <p>1. Link the script in your HTML:</p>
+    <pre>&lt;script src="seditor_v3.min.js"&gt;&lt;/script&gt;</pre>
+
+    <p>2. Initialize the editor:</p>
+    <pre>const editor = new sEditor();
+editor.run({
+  // REQUIRED: The CSS selector for the container element.
+  selector: '#myEditor',
+
+  // Enable or disable features. All are true by default.
+  plugins: {
+    image: true,   // Image insertion modal
+    link: true,    // Link insertion modal
+  },
+
+  // Initialize the editor in dark mode. Default: false.
+  darkMode: false,
+
+
+});</pre>
+
+    <h2>API Reference</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>getContent()</code></td>
+                <td>Returns the current content as an HTML string.</td>
+            </tr>
+            <tr>
+                <td><code>setContent(html)</code></td>
+                <td>Replaces editor content with the provided HTML.</td>
+            </tr>
+            <tr>
+                <td><code>toggleDarkMode()</code></td>
+                <td>Toggles the interface between light and dark themes.</td>
+            </tr>
+            <tr>
+                <td><code>toggleFullScreen()</code></td>
+                <td>Toggles the editor between normal and full-page mode.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Shortcuts</h2>
+    <ul>
+        <li><code>Ctrl + B</code>: Bold</li>
+        <li><code>Ctrl + I</code>: Italic</li>
+        <li><code>Ctrl + U</code>: Underline</li>
+        <li><code>Ctrl + Z / Y</code>: Undo / Redo</li>
+    </ul>
+
+    <hr>
+    <p>Powered by <a href="https://shalab.netlify.app/">ShaLab</a></p>
+
+</body>
+</html>
